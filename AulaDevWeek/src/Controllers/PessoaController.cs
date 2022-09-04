@@ -2,6 +2,8 @@
 using src.Models;
 using Microsoft.EntityFrameworkCore;
 using src.Persistence;
+using System.Security.Cryptography.X509Certificates;
+using System.Net;
 
 namespace src.Controllers
 {
@@ -17,18 +19,22 @@ namespace src.Controllers
             this._context = context;
         }
 
-        //private string id;
+        
 
         [HttpGet]
-        public List<Pessoa> Get()
+        public  ActionResult<List<Pessoa>> Get()
         {
-            //Pessoa pessoa = new Pessoa("Rui", 50, "12345678");
-            //Contrato novoContrato = new Contrato("abc123", 50.63);
+         
+            var result = _context.Pessoas.Include(p => p.contratos).ToList();
+            
+            if(!result.Any())
+            {
+                return NoContent();
+            }
 
-            //pessoa.contratos.Add(novoContrato);
-
-
-           return _context.Pessoas.Include(p => p.contratos).ToList();
+            return Ok(result);
+            //return Ok(result);
+            //return _context.Pessoas.Include(p => p.contratos).ToList();
             //return pessoa;
         }
 
@@ -42,22 +48,42 @@ namespace src.Controllers
         }
 
         [HttpPut("{id}")]
-        public string Update([FromRoute]int id, [FromBody]Pessoa pessoa)
+        public ActionResult<Object> 
+            Update([FromRoute]int id, 
+            [FromBody]Pessoa pessoa)
+        
         {
+
             _context.Pessoas.Update(pessoa);
             _context.SaveChanges();
 
-            return " Dados do id " + id + " atualizados ";
+            return Ok(new {
+                msg = " Dados do id " + id + " atualizados ",
+                status = HttpStatusCode.OK
+            });
         }
 
         [HttpDelete("{id}")]
-        public string Delete([FromRoute]int id, [FromBody]Pessoa pessoa)
+        public ActionResult<Object> 
+            Delete([FromRoute] int id, 
+            [FromBody] Pessoa pessoa)
         {
             var result = _context.Pessoas.SingleOrDefault(e => e.Id == id);
+            if (result == null)
+            {
+                return BadRequest(new
+                {
+                    msg = "Conteúdo inexistente"
+
+                });
+            }
 
             _context.Pessoas.Remove(result);
             _context.SaveChanges();
-            return " deletadada a pessoa com o id " + id;
-        }
+            return Ok(new {
+               msg = " deletada a pessoa com o id " + id
+            }); 
+          
+        }   
     }
 }
