@@ -25,3 +25,10 @@ C:\AulaDevWeek\AulaDevWeek\AulaDevWeek\obj\Debug\net6.0\refint\AulaDevWeek.dll
 C:\AulaDevWeek\AulaDevWeek\AulaDevWeek\obj\Debug\net6.0\AulaDevWeek.pdb
 C:\AulaDevWeek\AulaDevWeek\AulaDevWeek\obj\Debug\net6.0\AulaDevWeek.genruntimeconfig.cache
 C:\AulaDevWeek\AulaDevWeek\AulaDevWeek\obj\Debug\net6.0\ref\AulaDevWeek.dll
+C:\AulaDevWeek\AulaDevWeek\AulaDevWeek\bin\Debug\net6.0\Humanizer.dll
+C:\AulaDevWeek\AulaDevWeek\AulaDevWeek\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\AulaDevWeek\AulaDevWeek\AulaDevWeek\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\AulaDevWeek\AulaDevWeek\AulaDevWeek\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\AulaDevWeek\AulaDevWeek\AulaDevWeek\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\AulaDevWeek\AulaDevWeek\AulaDevWeek\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\AulaDevWeek\AulaDevWeek\AulaDevWeek\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
